@@ -31,6 +31,7 @@ public class SimpleHTTP1 {
             } finally {
                 socket.close();
             }
+            // TODO: socket.close!!
         }
     }
 }
