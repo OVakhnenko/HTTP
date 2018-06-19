@@ -29,7 +29,13 @@ public class SimpleHTTP1 {
                 byte[] responce = new Date().toString().getBytes(US_ASCII);
                 ous.write(responce);
             } finally {
-                socket.close();
+                if (socket != null && !socket.isClosed()) {
+                    try {
+                        socket.close();
+                    } catch (IOException e) {
+                        e.printStackTrace(System.err);
+                    }
+                }
             }
             // TODO: socket.close!!
         }
